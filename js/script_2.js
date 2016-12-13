@@ -1,34 +1,30 @@
-function pow() {
-	var nameLoginArr = ['Сергей', 'Антон', 'Андрей', 'Евгений', 'Дмитрий'],
-			proverLogin = 0;
+var nameLoginArr = ['Сергей', 'Антон', 'Андрей', 'Евгений', 'Дмитрий'];
 
+function inputName() { // Функция ввода массива имён
 	for (var i = 0 ; i <= 4; i++) {
 		nameLoginArr[i] = prompt('Укажите имя', nameLoginArr[i]);
-		console.log(nameLoginArr[i]);
-	};
+		if ( nameLoginArr[i] === null ){
+			alert('Вы не ввели даные');
+		}
+	}
+}
 
-	var nameLogin = prompt('Укажите Login', '');
-
-	if ( nameLogin == null ){
-		alert('Вы не ввели логин');
+function inputNameLogin() { // функция ввода и проверки Логина
+	var nameLogin = prompt('Укажите Логин', '');
+	if ( nameLogin === null ){
+		alert('Вы не ввели Логин');
 		return;
 	}
-
-	for (var i = 0 ; i <= 4; i++) {
-		if (nameLoginArr[i] === nameLogin) {
-			proverLogin = 1;
+	for (var t = 0 ; t <= 4; t++) {
+		if (nameLoginArr[t] === nameLogin) {
+			var namePerson = nameLogin + ', вы успешно вошли';
+			alert(namePerson);
+			return;
 		}
-	};
-
-	if (proverLogin === 1) {
-		var namePerson = nameLogin + 'вы успешно вошли';
-		alert(namePerson);
-	} else  {
-			alert('Ваш логин неверный!');
-	};
-
+	}
+	alert('Ваш логин неверный!');
 	return;
-};
+}
 
-
-var powStart = pow();
+inputName();
+inputNameLogin();
